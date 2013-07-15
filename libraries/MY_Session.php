@@ -89,7 +89,6 @@ class MY_Session extends CI_Session {
         $this->_httponly             = $CI->config->item('cgit_sess_httponly');
         $this->_regenerate           = $CI->config->item('cgit_sess_regenerate');
         $this->_session_key          = $CI->config->item('cgit_sess_session_key');
-        $this->_cgit_sess_old_expiry = $CI->config->item('cgit_sess_old_expiry');
         
         // Create/resume the session
         $this->sess_create();
