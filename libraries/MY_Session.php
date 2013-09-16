@@ -201,9 +201,9 @@ class MY_Session extends CI_Session {
     /**
      * Regenerate id
      *
-     * Regenerates the session id. Old sessions are not removed, to prevent issues where the a user may "double refresh" and not recieve the new sessions ID
-     * so they lose their session completely. Instead, the old session is allowed to remain, however the expiry time is reduced to ensure lots of old 
-     * sessions are not left open.
+     * Regenerates the session id. Old sessions are removed so that old sessions are no left around every x number of minutes. User may "double refresh" and
+     * not recieve the new sessions ID so they lose their session completely. A solution to this should be addressed, perhaps with an additional but
+     * session name.
      *
      * @access  public
      * @return  void
