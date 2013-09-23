@@ -166,9 +166,8 @@ class MY_Session extends CI_Session {
     public function sess_destroy()
     {
         // Destroy!
-        session_unset();
-        session_destroy();
         $_SESSION = array();
+        session_destroy();
     }
 
     // -----------------------------------------------------------------------------------------------------------------------------------------------------
