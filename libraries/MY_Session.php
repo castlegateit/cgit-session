@@ -131,8 +131,12 @@ class MY_Session extends CI_Session {
         // Configure session name
         session_name($this->_session_name);
 
-        // Start
-        session_start();
+        // Start the session. You must check it has not already been started. Using the CodeIgniter 404 override creates two CI instances, therefore running
+        // the sesions class twice.
+        if (session_id() == '')
+        {
+            session_start();
+        }
 
         // Update the expiry time of the session if its not set
         if (!isset($_SESSION[$this->_session_key]['__expiry']))
