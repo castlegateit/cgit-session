@@ -126,7 +126,8 @@ class MY_Session extends CI_Session {
     public function sess_create()
     {
         // Configure the session cookie
-        session_set_cookie_params($this->_expiry, '/', $_SERVER['HTTP_HOST'], $this->_secure, $this->_httponly);
+        // @param3 Port number shouldn't be part of the domain parameter (HTTP_HOST includes it when using non-standard port numbers)
+        session_set_cookie_params($this->_expiry, '/', array_shift(explode(':', $_SERVER['HTTP_HOST'])), $this->_secure, $this->_httponly);
 
         // Configure session name
         session_name($this->_session_name);
